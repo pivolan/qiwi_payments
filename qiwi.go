@@ -46,7 +46,6 @@ func QiwiBillPayment(tokenSecret string, billId string, themeCode string, amount
 	if err != nil {
 		return
 	}
-	fmt.Println(resp.StatusCode, resp.Status, string(body))
 	if strings.Contains(string(body), "errorCode") {
 		err = json.Unmarshal(body, &ResultError)
 		if err != nil {
